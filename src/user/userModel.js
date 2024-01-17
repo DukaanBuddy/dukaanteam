@@ -35,10 +35,8 @@ const UserSchema = new mongoose.Schema(
       enum: ["Miss", "Mrs", "Mr"],
       // required: true,
     },
-    fullName: {
-      type: String,
-      // required: true,
-    },
+    bussinessUuid: String,
+    fullName: String,
     gender: {
       type: String,
       enum: ["Male", "Female", "Other"],
@@ -59,14 +57,13 @@ const UserSchema = new mongoose.Schema(
       type: String,
       //   unique: true,
     },
-    panNumber: {
-      type: String,
-      //   unique: true,
-    },
+    panNumber: String,
+
     // password: {
     //     type: String,
     //     required: true,
     // },
+    aadharPhoto: String,
     bankDetails: bankDetailsSchema,
     customerSince: Date,
     fullNameOfTheBusiness: String,
