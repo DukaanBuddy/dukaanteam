@@ -1,3 +1,21 @@
-// export const createUser =
-//  const newUser = new userModel(req.body);
-//  const savedUser = await newUser.save();
+import UserModel from "./userModel";
+export const createUserServices = async (userData) => {
+  const newUser = new UserModel(userData);
+  return await newUser.save();
+};
+
+export const findOneUserService = async (query) => {
+  return await UserModel.findOne(query).exec();
+};
+export const updateUserService = async (query, data) => {
+  return await UserModel.findOneAndUpdate({ query }, { $set: data }).exec();
+};
+export const findAllUserServices = async (query) => {
+  return await UserModel.find(query).exec();
+};
+export const deleteOneServices = async (query) => {
+  return await UserModel.findOneAndDelete(query).exec();
+};
+export const deleteAllServices = async (query) => {
+  return await UserModel.remove(query).exec();
+};

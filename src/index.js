@@ -13,7 +13,7 @@ dotenv.config();
 
 mongoose
   .connect("mongodb://localhost:27017/DukkanBuddy", {
-    useNewUrlParser: true,
+    // useNewUrlParser: true,
   })
   .then(() => console.log("MongoDb is connected"))
   .catch((err) => console.log("mongoose connection error", err));

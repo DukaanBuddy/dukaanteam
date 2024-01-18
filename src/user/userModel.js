@@ -53,10 +53,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       //   unique: true,
     },
-    aadharNumber: {
-      type: String,
-      //   unique: true,
-    },
+    aadharNumber: String,
     panNumber: String,
 
     // password: {
