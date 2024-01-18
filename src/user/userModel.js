@@ -10,15 +10,6 @@ const addressSchema = {
   pincode: Number,
 };
 
-// const phoneNumbersSchema = {
-//   phoneNumber1: String,
-//   phoneNumber2: String,
-//   phoneNumber3: String,
-// };
-
-// const emailsSchema = {
-//   email1: String
-
 const bankDetailsSchema = {
   accountNumber: String,
   ifscNumber: String,
@@ -33,7 +24,6 @@ const UserSchema = new mongoose.Schema(
     title: {
       type: String,
       enum: ["Miss", "Mrs", "Mr"],
-      // required: true,
     },
     bussinessUuid: String,
     fullName: String,
@@ -44,26 +34,18 @@ const UserSchema = new mongoose.Schema(
 
     doingBusinessAs: String,
     address: addressSchema,
-    phoneNumbers: String,
-    emails: String,
+    phoneNumber: String,
+    email: String,
     occupation: String,
     age: Number,
     dateOfIncorporation: Date,
-    GSTIN: {
-      type: String,
-      //   unique: true,
-    },
+    GSTIN: String,
     aadharNumber: String,
     panNumber: String,
-
-    // password: {
-    //     type: String,
-    //     required: true,
-    // },
     aadharPhoto: String,
     bankDetails: bankDetailsSchema,
     customerSince: Date,
-    fullNameOfTheBusiness: String,
+    businessName: String,
     preferedCommunication: { type: String, enum: ["Phone", "Email"] },
     businessCategory: String,
     lastTransactionDate: Date,

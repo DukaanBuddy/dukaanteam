@@ -18,8 +18,10 @@ mongoose
   .then(() => console.log("MongoDb is connected"))
   .catch((err) => console.log("mongoose connection error", err));
 
-app.use("/api/", userRouter);
-// app.use("/api");
+app.use("/api", userRouter);
+app.get("/api", (req, res) => {
+  res.send("Welcome");
+});
 // const err = new Error('This is an error message');
 // Error.captureStackTrace(err);
 
