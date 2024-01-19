@@ -9,14 +9,14 @@ export const findOneUserService = async (query) => {
 };
 export const updateUserService = async (query, data) => {
   return await UserModel.findOneAndUpdate(
-    { query },
+    query,
     { $set: data },
     { new: true }
   ).exec();
 };
-export const findAllUserServices = async (query) => {
-  return await UserModel.find(query).exec();
-};
+// export const findAllUserServices = async (query) => {
+//   return await UserModel.find(query).exec();
+// };
 export const deleteOneServices = async (query) => {
   return await UserModel.findOneAndDelete(query).exec();
 };

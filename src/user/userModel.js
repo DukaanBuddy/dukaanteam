@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema(
     doingBusinessAs: String,
     address: addressSchema,
     phoneNumber: String,
-    email: String,
+    emailId: String,
     occupation: String,
     age: Number,
     dateOfIncorporation: Date,

@@ -1,5 +1,6 @@
 import {
   createUserServices,
+  deleteOneServices,
   findOneUserService,
   updateUserService,
 } from "./userServices.js";
@@ -8,7 +9,7 @@ export const createUser = async (req, res) => {
   try {
     const data = req.body;
     data["bussinessUuid"] = uuidv4();
-    const newUser = await createUserServices(req.body);
+    const newUser = await createUserServices(data);
     return res.status(201).json(newUser);
   } catch (error) {
     console.error(error);
@@ -22,7 +23,7 @@ export const getUser = async (req, res) => {
     const result = await findOneUserService({ bussinessUuid });
     return res.status(200).send(result);
   } catch (error) {
-    console.log("Error ");
+    console.log("Error ", error);
     return res.status(500).send(error);
   }
 };
@@ -31,12 +32,22 @@ export const updateUser = async (req, res) => {
   try {
     const { params, body } = req;
     const { bussinessUuid } = params;
-    console.log("bussinessUuid", body);
-    const result = await updateUserService(bussinessUuid, body);
-    console.log("result,re", result);
+    const result = await updateUserService({ bussinessUuid }, body);
     return res.status(200).send(result);
   } catch (error) {
-    console.log("Error ");
+    console.log("Error", error);
+    return res.status(500).send(error);
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const { params } = req;
+    const { bussinessUuid } = params;
+    await deleteOneServices({ bussinessUuid });
+    return res.status(200).send("Deleted SuccessFully");
+  } catch (error) {
+    console.log("Error", error);
     return res.status(500).send(error);
   }
 };
