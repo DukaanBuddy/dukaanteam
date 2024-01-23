@@ -1,6 +1,6 @@
 const { STATUS } = require("../constants/constants")
 
-module.exports=(err,req,res,next)=>{
+module.exports.errorHandler=(err,req,res,next)=>{
     try {
         if(err) return res.status(STATUS.INTERNAL_SERVER).send(`Error: ${err}`)
     } catch (error) {

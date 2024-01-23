@@ -1,27 +1,27 @@
-import TasksModel from "./tasksModel";
 
-export const createTaskServices = async (taskData) => {
+
+module.exports.createTaskServices = async (taskData) => {
   const newTask = new TasksModel(taskData);
   return await newTask.save();
 };
 
-export const findOneTaskService = async (query) => {
+module.exports.findOneTaskService = async (query) => {
   return await TasksModel.findOne(query).exec();
 };
 
-export const updateTaskService = async (query, data) => {
+module.exports.updateTaskService = async (query, data) => {
   return await TasksModel.findOneAndUpdate(
     query,
     { $set: data },
     { new: true }
   ).exec();
 };
-export const findAllTaskServices = async (query) => {
+module.exports.findAllTaskServices = async (query) => {
   return await TasksModel.find(query).exec();
 };
-export const deleteOneServices = async (query) => {
+module.exports.deleteOneServices = async (query) => {
   return await TasksModel.findOneAndDelete(query).exec();
 };
-export const deleteAllServices = async (query) => {
+module.exports.deleteAllServices = async (query) => {
   return await TasksModel.remove(query).exec();
 };

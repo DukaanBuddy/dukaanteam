@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose =require("mongoose");
 
 const addressSchema = {
   street: String,
@@ -62,4 +62,4 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("User", UserSchema);
+module.exports.UserModel= mongoose.model("User", UserSchema);

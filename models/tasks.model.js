@@ -19,4 +19,4 @@ const taskSchema = new mongoose.Schema({
   businessUuid: { type: String, required: true },
 });
 
-export default mongoose.model("Task", taskSchema);
+module.exports=mongoose.model("Task", taskSchema);
