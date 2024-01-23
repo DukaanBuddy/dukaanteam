@@ -2,9 +2,13 @@ import {
   createUserServices,
   deleteOneServices,
   findOneUserService,
+  findAllUserServices,
   updateUserService,
 } from "./userServices.js";
 import { v4 as uuidv4 } from "uuid";
+// import userValidationSchema from "./user.validator.js";
+
+
 export const createUser = async (req, res) => {
   try {
     const data = req.body;
@@ -27,6 +31,18 @@ export const getUser = async (req, res) => {
     return res.status(500).send(error);
   }
 };
+export const getAllUser = async (req, res) => {
+  try {
+    const { params } = req;
+    const { bussinessUuid } = params;
+    const result = await findAllUserServices({ bussinessUuid });
+    return res.status(200).send(result);
+  } catch (error) {
+    console.log("Error", error);
+    return res.status(500).send(error);
+  }
+};
+
 
 export const updateUser = async (req, res) => {
   try {

@@ -11,7 +11,7 @@ userRouter.get("/", (req, res) => {
   return res.status(200).send("okkkk");
 });
 userRouter.post("/create", createUser);
-userRouter.get("/:bussinessUuid", getUser);
-userRouter.put("/:bussinessUuid", updateUser);
-userRouter.delete("/:bussinessUuid", deleteUser);
+userRouter.get("/getUser/:bussinessUuid", getUser);
+userRouter.put("/updateUser/:bussinessUuid", updateUser);
+userRouter.delete("/deleteUser/:bussinessUuid", deleteUser);
 export default userRouter;

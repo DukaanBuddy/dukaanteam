@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const expenseSchema = new mongoose.Schema({
-  expenseID: { type: String, required: true },
+  // expenseID: { type: String, required: true },
   expenseCategory: {
     type: String,
     enum: ["Salary", "Office_Expense", "Rent", "EMI", "Utility"],
