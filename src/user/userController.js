@@ -8,7 +8,6 @@ import {
 import { v4 as uuidv4 } from "uuid";
 // import userValidationSchema from "./user.validator.js";
 
-
 export const createUser = async (req, res) => {
   try {
     const data = req.body;
@@ -43,11 +42,11 @@ export const getAllUser = async (req, res) => {
   }
 };
 
-
 export const updateUser = async (req, res) => {
   try {
     const { params, body } = req;
     const { bussinessUuid } = params;
+    // console.log("update api ", body);
     const result = await updateUserService({ bussinessUuid }, body);
     return res.status(200).send(result);
   } catch (error) {
