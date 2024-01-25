@@ -6,11 +6,13 @@ import {
     getAllInventory,
     deleteInventory,
 } from "./inventeryControllers.js";
+
 const inventoryRouter = express.Router();
 
 // expenceRouter.get("/", (req, res) => {
 //     return res.status(200).send("okkkk");
 // });
+
 inventoryRouter.post("/api/createInventory", createInventory);
 inventoryRouter.get("/getInventory/:bussinessUuid", getInventory);
 inventoryRouter.get("/getAllInventory/:bussinessUuid", getAllInventory);

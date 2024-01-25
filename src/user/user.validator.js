@@ -1,5 +1,6 @@
-import Joi from 'joi';
+import Joi from "joi";
 
+<<<<<<< HEAD
 const addressSchema = {
     street: Joi.string()
         .regex(/^[a-zA-Z0-9\s]+$/)
@@ -133,6 +134,56 @@ const userValidationSchema = Joi.object({
         prePaidDate: Joi.date(),
         prePaidExpiration: Joi.date(),
     }),
+=======
+export const addressSchema = {
+  street: Joi.string().required(),
+  block: Joi.string().required(),
+  landMark: Joi.string().required(),
+  city: Joi.string().required(),
+  district: Joi.string().required(),
+  state: Joi.string().required(),
+  pincode: Joi.number().required(),
+};
+
+const bankDetailsSchema = {
+  accountNumber: Joi.string().required(),
+  ifscNumber: Joi.string().required(),
+  accountType: Joi.string().required(),
+};
+
+const userValidationSchema = Joi.object({
+  profilePicture: Joi.string(),
+  title: Joi.string().valid("Miss", "Mrs", "Mr"),
+  bussinessUuid: Joi.string(),
+  fullName: Joi.string(),
+  gender: Joi.string().valid("Male", "Female", "Other"),
+  doingBusinessAs: Joi.string(),
+  address: Joi.object(addressSchema),
+  phoneNumber: Joi.string(),
+  emailId: Joi.string().email(),
+  occupation: Joi.string(),
+  age: Joi.number(),
+  dateOfIncorporation: Joi.date(),
+  GSTIN: Joi.string(),
+  aadharNumber: Joi.string(),
+  panNumber: Joi.string(),
+  aadharPhoto: Joi.string(),
+  bankDetails: Joi.object(bankDetailsSchema),
+  customerSince: Joi.date(),
+  businessName: Joi.string(),
+  preferedCommunication: Joi.string().valid("Phone", "Email"),
+  businessCategory: Joi.string(),
+  lastTransactionDate: Joi.date(),
+  totalTransactionAmountTillDate: Joi.number(),
+  totalTransactionCountTillDate: Joi.number(),
+  hasSubscribed: Joi.boolean(),
+  prePaid: Joi.object({
+    amount: Joi.number(),
+    currency: Joi.string(),
+    prePaidDate: Joi.date(),
+    prePaidExpiration: Joi.date(),
+  }),
+>>>>>>> 0ca20ff417658824ad507e74cb37ee39ac07bd44
 }).options({ abortEarly: false, allowUnknown: true });
 
 export default userValidationSchema;
