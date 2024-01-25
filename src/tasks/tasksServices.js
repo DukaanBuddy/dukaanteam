@@ -1,33 +1,5 @@
-import TasksModel from "./tasksModel";
-import taskValidationSchema from "./task.validator";
-
-// export const createTaskServices = async (taskData) => {
-//   const newTask = new TasksModel(taskData);
-//   return await newTask.save();
-// };
-
-// export const findOneTaskService = async (query) => {
-//   return await TasksModel.findOne(query).exec();
-// };
-
-// export const updateTaskService = async (query, data) => {
-//   return await TasksModel.findOneAndUpdate(
-//     query,
-//     { $set: data },
-//     { new: true }
-//   ).exec();
-// };
-// export const findAllTaskServices = async (query) => {
-//   return await TasksModel.find(query).exec();
-// };
-// export const deleteOneServices = async (query) => {
-//   return await TasksModel.findOneAndDelete(query).exec();
-// };
-// export const deleteAllServices = async (query) => {
-//   return await TasksModel.remove(query).exec();
-// };
-// tasks.services.js
-
+import TasksModel from "./tasksModel.js";
+import taskValidationSchema from "./task.validator.js";
 
 
 const validateTaskData = async (taskData) => {
@@ -47,7 +19,7 @@ export const createTaskServices = async (taskData) => {
     return await newTask.save();
   } catch (error) {
     // Handle validation errors or any other errors
-    throw new Error(`Error creating task: ${error.message}`);
+    throw new Error(`${error.message}`);
   }
 };
 
@@ -83,3 +55,38 @@ export const deleteAllServices = async (query) => {
   return await TasksModel.remove(query).exec();
 };
 
+
+
+
+
+
+
+
+
+
+// export const createTaskServices = async (taskData) => {
+//   const newTask = new TasksModel(taskData);
+//   return await newTask.save();
+// };
+
+// export const findOneTaskService = async (query) => {
+//   return await TasksModel.findOne(query).exec();
+// };
+
+// export const updateTaskService = async (query, data) => {
+//   return await TasksModel.findOneAndUpdate(
+//     query,
+//     { $set: data },
+//     { new: true }
+//   ).exec();
+// };
+// export const findAllTaskServices = async (query) => {
+//   return await TasksModel.find(query).exec();
+// };
+// export const deleteOneServices = async (query) => {
+//   return await TasksModel.findOneAndDelete(query).exec();
+// };
+// export const deleteAllServices = async (query) => {
+//   return await TasksModel.remove(query).exec();
+// };
+// tasks.services.js

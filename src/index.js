@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRouter from "./user/userRoutes.js";
-
+import taskRouter from "./tasks/tasksRoutes.js";
+import inventoryRouter from "./inventory/inventoryRoutes.js";
 const app = express();
 // const multer = require("multer")
 app.use(express.json());
@@ -18,12 +19,17 @@ mongoose
   .then(() => console.log("MongoDb is connected"))
   .catch((err) => console.log("mongoose connection error", err));
 
-app.use("/api", userRouter);
-app.get("/api", (req, res) => {
-  res.send("Welcome");
-});
+// app.use("/api", userRouter);
+// app.get("/api", (req, res) => {
+//   res.send("Welcome");
+// });
 // const err = new Error('This is an error message');
 // Error.captureStackTrace(err);
+
+app.use("/", userRouter);
+app.use("/", taskRouter)
+app.use("/", inventoryRouter)
+
 
 app.use((req, res) => {
   var err = new Error("Not Found");

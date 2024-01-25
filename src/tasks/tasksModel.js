@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
-  taskId: { type: String, required: true },
+  // taskId: { type: String, required: true },
   taskName: { type: String },
   taskDescription: { type: String },
   assignedTo: { type: String },
@@ -16,7 +16,7 @@ const taskSchema = new mongoose.Schema({
   actualTaskCompletionDate: { type: Date },
   tags: [{ type: String }],
   taskCreatedBy: { type: String },
-  businessUuid: { type: String, required: true },
+  businessUuid: { type: String },
 });
 
 export default mongoose.model("Task", taskSchema);

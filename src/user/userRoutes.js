@@ -10,7 +10,7 @@ const userRouter = express.Router();
 userRouter.get("/", (req, res) => {
   return res.status(200).send("okkkk");
 });
-userRouter.post("/create", createUser);
+userRouter.post("/api/create", createUser);
 userRouter.get("/getUser/:bussinessUuid", getUser);
 userRouter.put("/updateUser/:bussinessUuid", updateUser);
 userRouter.delete("/deleteUser/:bussinessUuid", deleteUser);

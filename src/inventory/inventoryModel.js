@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const inventoryItemSchema = new mongoose.Schema({
-  businessUuid: { type: String, required: true },
+  // businessUuid: { type: String, required: true },
   itemID: String,
   itemCategory: String,
   itemName: String,
