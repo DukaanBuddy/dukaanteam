@@ -1,3 +1,4 @@
+import { addressSchema } from "./user.validator.js";
 import {
   createUserServices,
   deleteOneServices,
@@ -6,12 +7,26 @@ import {
   updateUserService,
 } from "./userServices.js";
 import { v4 as uuidv4 } from "uuid";
+import Joi from "joi";
+
 // import userValidationSchema from "./user.validator.js";
 
 export const createUser = async (req, res) => {
   try {
     const data = req.body;
     data["bussinessUuid"] = uuidv4();
+    const addressValidationResult = Joi.object(addressSchema).validate(
+      req.body.address
+    );
+    console.log(
+      "addressValidation",
+      addressValidationResult.error.details[0].message
+    );
+    if (addressValidationResult.error) {
+      return res
+        .status(400)
+        .json({ error: addressValidationResult.error.details[0].message });
+    }
     const newUser = await createUserServices(data);
     return res.status(201).json(newUser);
   } catch (error) {

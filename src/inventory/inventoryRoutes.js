@@ -1,10 +1,10 @@
 import express from "express";
 import {
-    createInventory,
-    getInventory,
-    updateInventory,
-    getAllInventory,
-    deleteInventory,
+  createInventory,
+  getInventory,
+  updateInventory,
+  getAllInventory,
+  deleteInventory,
 } from "./inventeryControllers";
 const inventoryRouter = express.Router();
 
@@ -12,7 +12,7 @@ const inventoryRouter = express.Router();
 //     return res.status(200).send("okkkk");
 // });
 inventoryRouter.post("/create", createInventory);
-inventoryRouter.get("/getInventory/:bussinessUuid", getInventory);
+inventoryRouter.get("/getInventory/:bussinessUuid/:", getInventory);
 inventoryRouter.get("/getAllInventory/:bussinessUuid", getAllInventory);
 inventoryRouter.put("/updateInventory/:bussinessUuid", updateInventory);
 inventoryRouter.delete("/deleteInventory/:bussinessUuid", deleteInventory);
