@@ -1,4 +1,4 @@
-const mongoose =require("mongoose");
+const mongoose = require("mongoose");
 
 const addressSchema = {
   street: String,
@@ -21,10 +21,10 @@ const UserSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
     },
-    title: {
-      type: String,
-      enum: ["Miss", "Mrs", "Mr"],
-    },
+    // title: {
+    //   type: String,
+    //   enum: ["Miss", "Mrs", "Mr"],
+    // },
     bussinessUuid: String,
     fullName: String,
     gender: {
@@ -62,4 +62,4 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports.UserModel= mongoose.model("User", UserSchema);
+module.exports.UserModel = mongoose.model("User", UserSchema);
