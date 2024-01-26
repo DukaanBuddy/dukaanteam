@@ -3,7 +3,7 @@ const employeeRoute = require("./employee.route");
 const expensesRoute = require("./expenses.route");
 const inventoryRoute = require("./inventory.route");
 const tasksRoute = require("./tasks.route");
-const userRoute = require("./user.route").default;
+const userRoute = require("./user.route");
 const vendorsRoute = require("./vendors.route");
 
 module.exports = {
