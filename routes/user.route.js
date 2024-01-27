@@ -4,9 +4,11 @@ const {
   getUser,
   updateUser,
   deleteUser,
+  checkUserBusiness,
 } = require("../controllers/user.controller");
 const userRouter = express.Router();
 
+userRouter.post("/check", checkUserBusiness);
 userRouter.post("/create", createUser);
 userRouter.get("/:bussinessUuid", getUser);
 userRouter.put("/:bussinessUuid", updateUser);

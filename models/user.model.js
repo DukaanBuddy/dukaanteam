@@ -21,10 +21,6 @@ const UserSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
     },
-    // title: {
-    //   type: String,
-    //   enum: ["Miss", "Mrs", "Mr"],
-    // },
     bussinessUuid: String,
     fullName: String,
     gender: {
@@ -34,8 +30,8 @@ const UserSchema = new mongoose.Schema(
 
     doingBusinessAs: String,
     address: addressSchema,
-    phoneNumber: String,
-    emailId: String,
+    phone: String,
+    email: String,
     occupation: String,
     age: Number,
     dateOfIncorporation: Date,

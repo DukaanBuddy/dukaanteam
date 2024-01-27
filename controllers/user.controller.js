@@ -4,6 +4,7 @@ const {
   updateUserService,
   // findAllUserServices,
   deleteOneServices,
+  checkUserHasBusiness,
   //   deleteAllServices,
 } = require("../services/userServices");
 const { v4: uuidv4 } = require("uuid");
@@ -21,6 +22,19 @@ const createUser = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+const checkUserBusiness = async (req, res) => {
+  try {
+    const data = req.body;
+    const user = await checkUserHasBusiness(data);
+    if (user?.bussinessUuid) {
+      return res.status(200).send({hasBusiness: true,uid:user?.bussinessUuid});
+    }
+    res.send({hasBusinees: false})
+  } catch (error) {
     return res.status(400).json({ error: error.message });
   }
 };
@@ -73,4 +87,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getUser, updateUser, deleteUser };
+module.exports = { createUser, getUser, updateUser, deleteUser ,checkUserBusiness};

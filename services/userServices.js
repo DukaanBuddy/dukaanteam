@@ -9,6 +9,13 @@ const findOneUserService = async (query) => {
   return await UserModel.findOne(query).exec();
 };
 
+const checkUserHasBusiness = async (data) => {
+  return await UserModel.findOne({$or:[
+    {email:data?.email},
+    {phone:data?.phone}
+  ]}).exec();
+};
+
 const updateUserService = async (query, data) => {
   return await UserModel.findOneAndUpdate(
     query,
@@ -30,6 +37,7 @@ const deleteOneServices = async (query) => {
 // };
 
 module.exports = {
+  checkUserHasBusiness,
   createUserServices,
   findOneUserService,
   updateUserService,
