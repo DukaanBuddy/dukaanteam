@@ -6,6 +6,8 @@ const routes = require("./routes/index.route");
 // const UserRouter=require("./routes/user.route")
 const { errorHandler } = require("./middlewares/error.middleware");
 const userRouter = require("./routes/user.route");
+const sellRouter = require("./routes/sell.route");
+const buyRouter = require("./routes/buy.route");
 
 const app = express();
 
@@ -38,6 +40,8 @@ app.use("/api/v1/expense", routes.expenses);
 app.use("/api/v1/inventory", routes.inventory);
 app.use("/api/v1/task", routes.tasks);
 app.use("/api/v1/vendor", routes.vendors);
+app.use("/api/v1/sell", sellRouter);
+app.use("/api/v1/buy", buyRouter);
 
 app.use(errorHandler);
 
